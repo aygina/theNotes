@@ -1,13 +1,12 @@
 document.addEventListener('DOMContentLoaded', function (event) {
-    let note = localStorage.getItem('note');
+    let notes = localStorage.getItem('notes');
 
-    if (note != null) {
-        allNotes.innerHTML = note;
+    if (notes != null) {
+        allNotes.innerHTML = notes;
     }
-
 })
 
-const author = document.getElementById('author');
+arrNote = [];
 
 function saveNote() {
     let allNotes = document.querySelector('#allNotes');
@@ -21,16 +20,24 @@ function saveNote() {
         minute: '2-digit'
     });
 
-    let newNote = `Заметка от ` + newDate + `:<br> ` + note + `<br><br>`;
-    allNotes.innerHTML += newNote;
+    let newNote = (`Заметка от ` + newDate + `:<br> ` + note + `<br>`);
+    arrNote.push(newNote);
+
+    allNotes.innerHTML = arrNote.join('');
     document.getElementById('note').value = '';
 
-    if (localStorage.getItem('note') == null) {
-        localStorage.setItem('note', newNote);
+    if (localStorage.getItem('notes') == null) {
+        localStorage.setItem('notes', JSON.stringify(arrNote));
+
+    } else {
+        let previousNotes = localStorage.getItem('notes');
+        let updatedNotes = JSON.parse(previousNotes);
+        updatedNotes.push(arrNote);
+        localStorage.setItem('notes', JSON.stringify(updatedNotes));
     }
 }
 
-function clearStorage() {
-    localStorage.clear();
-    allNotes.innerHTML = '';
-}
+    function clearStorage() {
+        localStorage.clear();
+        allNotes.innerHTML = '';
+    }
