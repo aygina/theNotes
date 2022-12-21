@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,12 +11,25 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=PT+Sans&display=swap"
         rel="stylesheet">
-    <title>Notes</title>
+    <title>notes</title>
 </head>
+
 <body>
     <div class="wrapper">
-        <p>Сделать локальное хранилище заметок для себя любимой. Не забыть валидацию при добавлении заметки.</p>
+        <div class="form">
+            <h2>Мои заметки</h2>
+            <p>Сделать локальное хранилище заметок для себя любимой.<br> Не забыть валидацию при добавлении заметки.</p>
+            <div class="note">
+                <textarea name="note" id="note" placeholder="Новая заметка" required></textarea>
+                <div class="bttns">
+                    <button onclick="saveNote();">Сохранить</button>
+                    <button onclick="clearStorage();">Удалить все заметки</button>
+                    <p class="allNotes" id="allNotes"></p>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="index.js"></script>
 </body>
+
 </html>
