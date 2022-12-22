@@ -18,13 +18,19 @@
     <div class="wrapper">
         <div class="form">
             <h2>Мои заметки</h2>
-            <p>Сделать локальное хранилище заметок для себя любимой.<br> Не забыть валидацию при добавлении заметки.</p>
+            <p>Сделать локальное хранилище заметок для себя любимой.<br>Не забыть валидацию при добавлении заметки.</p>
+                <p>Для отображения новых заметок нажмите 'Enter' либо кнопку "Отправить".<br>Не забудь их сохранить!</p>
             <div class="note">
                 <textarea name="note" id="note" placeholder="Новая заметка" required></textarea>
+                <p class="allNotes" id="allNotes"></p>
                 <div class="bttns">
-                    <button onclick="saveNote();">Сохранить</button>
-                    <button onclick="clearStorage();">Удалить все заметки</button>
-                    <p class="allNotes" id="allNotes"></p>
+                    <div class="bttns__send">
+                        <p class="cool" id="cool"></p>
+                        <button onclick="sendNote();">Отправить</button></div>
+                    <div class="bttns__saveClear">
+                        <button onclick="saveNote();">Сохранить все</button>
+                        <button onclick="clearStorage();">Удалить все заметки</button>
+                    </div>
                 </div>
             </div>
         </div>
